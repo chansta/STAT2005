@@ -11930,7 +11930,7 @@ a.anchor-link {
 <li>Two hours lecture and two hours workshop (weekly).</li>
 <li>A case study (quick challenge) sometimes in the middle of the semester. </li>
 <li>A project to be presented by the end of the year. </li>
-<li>The project has two parts: proposal and final report. </li>
+<li>The project has three parts: proposal, presentation and final report. </li>
 <li>No examination (yay!) </li>
 </ul>
 
@@ -18211,15 +18211,33 @@ $$ \rho_j (t) = \left ( 1- \frac{Y_j(t)}{L_j(t)} \frac{L(t)}{Y(t)} \right ) \fra
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Limitation">Limitation<a class="anchor-link" href="#Limitation">&#182;</a></h3><h2 id="--Simulation-result-is-not-a-&quot;proof&quot;">- Simulation result is not a "proof"<a class="anchor-link" href="#--Simulation-result-is-not-a-&quot;proof&quot;">&#182;</a></h2>
+<h3 id="Limitation">Limitation<a class="anchor-link" href="#Limitation">&#182;</a></h3><p>Like everything else, simulation has its own limitations.</p>
+
 </div>
 </div>
-</div></section></section><section><section>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Simulation result is not a "proof".</li>
+<li>Special cases.</li>
+<li>Often insightful but not always reliable when studying asymptotic behaviours. </li>
+</ul>
+<p>Consider:</p>
+<p>$$ y_t = \phi_1 y_{t-1} + \phi_2 y_{t-1} I(t&gt;t_0) + \varepsilon_t $$</p>
+<p>where $I(A)=1$ if $A$ is true, and 0 otherwise.</p>
+<p>If $t_0=1000$ and we only simulate a total number of 500 observations then we don't really see what is happening when $T$ gets large.</p>
+
+</div>
+</div>
+</div></div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18320,6 +18338,7 @@ This implies
     $$\Pr (A|B) = 0$$.</p>
 <ul>
 <li>Clearly, if $A$ and $B$ cannot happen together then observing $B$ means $A$ cannot happen! </li>
+<li>$\Pr( X=1 | X=0)=0$ </li>
 </ul>
 
 </div>
@@ -18329,7 +18348,7 @@ This implies
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Law-of-total-probability">Law of total probability<a class="anchor-link" href="#Law-of-total-probability">&#182;</a></h3><p>Let $A_i$ be mutually exclusive and exhaustive events for $i=1,\ldots, k$, i.e. $\displaystyle \cap^k_{i=1} A_i = \Omega$ and $B$ denotes any other event. 
+<h3 id="Law-of-total-probability">Law of total probability<a class="anchor-link" href="#Law-of-total-probability">&#182;</a></h3><p>Let $A_i$ be mutually exclusive and exhaustive events for $i=1,\ldots, k$, i.e. $\displaystyle \cup^k_{i=1} A_i = \Omega$ and $B$ denotes any other event. 
 $$\begin{align}
     \Pr (B) =&amp; P \left [ B \cap \left ( \overset{k}{\underset{i=1}{\cup}} A_i \right ) \right ] \\
     =&amp; \sum^k_{i=1} \Pr (B \cap A_i ) \\
@@ -18339,7 +18358,198 @@ $$\begin{align}
 
 </div>
 </div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Random-variables">Random variables<a class="anchor-link" href="#Random-variables">&#182;</a></h3><p>Formal definition is not required but fun to just take a look. There are couple of formulations but we follow Papoulis (1984, p. 88)</p>
+<p>$$X:\Omega \rightarrow E$$</p>
+<p>and $X^{-1}(B) \in \mathit{F}$ for any $B\subset \tilde{E}$ where $\mathit{F}$ denotes the $\sigma$-algebra i.e. collection of all events.</p>
+<p>If $E$ is finite or countably infinite then $X$ is a <em>discrete</em> random variable.</p>
+<p>If $E$ is uncountably infinite then $X$ is a <em>continuous</em> random variable.</p>
+<p>Normally $E\subseteq \mathbb{R}$.</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Axiomatic approach to this can be fun but scary (take a course in Measure Theory if this tickles your fancy). </li>
+<li>Intuition is that we are mapping an outcome (or some atrributes of) to a number. </li>
+<li>Probabilties associated with the outcomes will also be associated with the associated numbers. </li>
+<li>Elementary example: coin toss. $\Omega = \{H, T\}$ and define the random variable $X$ such that $X=1$ if $H$ otherwise $X=0$. So $E=\{0,1\}$ and $\Pr (H) = \Pr (X=1) = 0.5$. </li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="PMF,-PDF-and-CDF">PMF, PDF and CDF<a class="anchor-link" href="#PMF,-PDF-and-CDF">&#182;</a></h3><ul>
+<li>The distribution of probabilities for a discrete random variable can be mathematically described by its <em>probability mass function</em> (PMF). </li>
+<li>The distribution of probabilities for a continuous random variable can be mathematically described by its <em>probability density function</em> (PDF). Note that if $f(x)$ is a PDF then
+$$f(x) \geq 0 \quad \forall x \quad \text{ and } \quad \int^\infty_{-\infty} f(x) dx = 1.$$</li>
+<li>The cumulative distribution function (CDF), $F(x)$, for the random variable $X$ is $\Pr ( X\leq x)$. </li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Expectation">Expectation<a class="anchor-link" href="#Expectation">&#182;</a></h3><p>Let $X$ be a discrete random variable with a set of possible values $D$ then the <em>expected value</em> of $X$ is defined to be 
+$$\mathbb{E} (X) = \underset{x\in D}{\sum} xp(x)$$</p>
+<p>where $p(x)$ denotes the PMF. Similarly, let $X$ be a continuous random variable with the support $D$ then the <em>expected value</em> of $X$ is defined to be 
+$$\mathbb{E} (X) = \int_D xf(x) dx$$
+where $f(x)$ denotes the PDF.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Interpretation-of-expected-value">Interpretation of expected value<a class="anchor-link" href="#Interpretation-of-expected-value">&#182;</a></h3><p>Let $X$ be the random variable representing the outcome of rolling a fair dice. This means $p(x)=1/6$ for $x=1,\ldots, 6$. The expected value is therefore
+$$ \mathbb{E} (X) = \sum^6_{x=1} \frac{x}{6} =3.5. $$
+How does one interpret this number?</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Properties-of-the-expectation-operator">Properties of the expectation operator<a class="anchor-link" href="#Properties-of-the-expectation-operator">&#182;</a></h3><ul>
+<li>$\mathbb{E} (a) = a$ if $a$ is a finite constant. </li>
+<li>It is linear i.e. for any random variables $X$, $Y$, with finite expectations, $\mathbb{E} (aX + bY)=a\mathbb{E} (X) + b \mathbb{E} (Y)$ for any $a,b \in \mathbb{R}$. </li>
+<li>Let $X$ be a discrete random varaible with a set of possible values $D$ and PMF, $p(x)$, then 
+$$ \mathbb{E} \left [ h(X) \right ] = \underset{x\in D}{\sum} h(x)p(x)$$
+for any function $h(x)$. Similarly, let $X$ be a continuous random variable with support $D$ and PDF, $f(x)$, then 
+$$ \mathbb{E} \left [ h(X) \right ] = \int_D h(x)f(x)dx.$$</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Variance">Variance<a class="anchor-link" href="#Variance">&#182;</a></h3><p>Let $h(x) = \left [x-\mathbb{E} (X) \right ]^2$ then $\sigma^2_X = \mathbb{E} \left [ h(x) \right ]$ is called the <em>variance</em> of $X$ and $\sigma_X$ is the standard deviation of $X$.</p>
+<h3 id="Higher-order-moment">Higher order moment<a class="anchor-link" href="#Higher-order-moment">&#182;</a></h3><p>The variance is also known as the <em>second centralised moment</em> and the definition above extends naturally to higher order. That is, let $h(x) = \left [ X-\mathbb{E} (X) \right ]^n$ then $\mathbb{E} [h(x)]$ is called the $n^{th}$ centralised moment (if exists).</p>
+<p>Higher order moments are often associated with other useful properties of the probability distributions, such as, skewness and kurtosis. More about this later (hopefully).</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Joint-PMF-and-PDF">Joint PMF and PDF<a class="anchor-link" href="#Joint-PMF-and-PDF">&#182;</a></h3><p>Let $X$ and $Y$ be two discrete random variables, then $p(x,y) = \Pr (X=x, Y=y)$ is called the <em>joint</em> probability mass function. Similarly, $f(x,y)$ is the <em>joint</em> probability density function if 
+$$ \Pr \left [ (x,y) \in A \right ] = \underset{A}{\int\int} f(x,y) dxdy.$$</p>
+<p>The evaluation of the double integral is often achieved by iteration. First integrate with respect to $x$ then with respect to $y$. This is possible becasue of Fubini's Theorem. It holds almost always for us but there are cases when it doesn't.</p>
+<h3 id="Marginal-PMF-and-PDF">Marginal PMF and PDF<a class="anchor-link" href="#Marginal-PMF-and-PDF">&#182;</a></h3><ul>
+<li>$p_X(x) = \sum_{y} p(x,y)$ and $f_X (x) = \int_{-\infty}^{\infty} f(x,y) dy$. Mariginal PMF and PDF for $y$ are defined in the same manner. </li>
+<li>If $X$ and $Y$ are independent then $p(x,y) = p_X(x)p_Y(y)$ and similarly, $f(x,y) = f_X(x)f_Y(y)$. </li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Expectation-(again)">Expectation (again)<a class="anchor-link" href="#Expectation-(again)">&#182;</a></h3><p>The definition of expected value extends naturally to joint PMF and PDF. Let $X$ and $y$ be two discrete random variables with the joint PMF, $p(x,y)$. Let $h(x,y)$ denote a bi-variate scalar function then 
+$$ \mathbb{E} \left [ h(X,Y) \right ] = \sum_x \sum_y h(x,y) p(x,y).$$</p>
+<p>Similarly, let $X$ and $Y$ be two continuous random variables with the joint PDF, $p(x,y)$, then 
+$$ \mathbb{E} \left [ h(X,Y) \right ] = \int \int h(x,y) f(x,y)dxdy.$$</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Recall the claim $\mathbb{E} (aX + bY) = a\mathbb{E} (X) + b \mathbb{E} (Y)$. First we prove the discrete case:</p>
+<p>Let $h(x,y) = ax + by$ then 
+$$ \begin{align} 
+        \mathbb{E} (aX + bY) =&amp; \sum_x\sum_y (ax+by)p(x,y) \\
+                             =&amp; a\sum_x\sum_y x p(x,y) + b \sum_x\sum_y yp(x,y) \\
+                             =&amp; a\sum_x\sum_y x p(x,y) + b \sum_y\sum_x yp(x,y) \\
+                             =&amp; a\sum_x \left [x\sum_y p(x,y) \right ] + b \sum_y\left [y\sum_x p(x,y)\right ] \\
+                             =&amp; a\sum_xx p_X(x) + b \sum_y yp_Y(y) \\
+                             =&amp; a\mathbb{E} (X) + b \mathbb{E} (Y)
+     \end{align}
+$$</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For the continuous case, we operate under the condition of Fubini's theorem. In other words, the order of integration does not matter. 
+Let $h(x,y) = ax + by$ then 
+$$ \begin{align} 
+        \mathbb{E} (aX + bY) =&amp; \int\int (ax+by)f(x,y)dxdy \\
+                             =&amp; a\int\int x f(x,y)dxdy + b \int\int yf(x,y)dxdy \\
+                             =&amp; a\int\int x f(x,y)dydx + b \int\int yf(x,y)dxdy \\
+                             =&amp; a\int \left [x\int f(x,y)dy \right ]dx + b \int\left [y\int f(x,y) dx\right ]dy \\
+                             =&amp; a\int x f_X(x)dx + b \int yf_Y(y)dy \\
+                             =&amp; a\mathbb{E} (X) + b \mathbb{E} (Y)
+     \end{align}
+$$</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Covariance">Covariance<a class="anchor-link" href="#Covariance">&#182;</a></h3><p>Let $X$ and $Y$ be two discrete random variables with PMF, $p(x,y)$. Let $h(x,y) = (x-\mu_x)(y-\mu_y)$ where $\mu_x$ and $\mu_y$ denote $\mathbb{E} (X)$ and $\mathbb{E} (Y)$, respectively, then $\mathbb{E} [ h(X,Y) ]$ is called the covariance of $X$ and $Y$.</p>
+<p>Similarly Let $X$ and $Y$ be two continuous random variables with PDF, $f(x,y)$. Let $h(x,y) = (x-\mu_x)(y-\mu_y)$ where $\mu_x$ and $\mu_y$ denote $\mathbb{E} (X)$ and $\mathbb{E} (Y)$, respectively, then $\mathbb{E} [ h(X,Y) ]$ is called the covariance of $X$ and $Y$.</p>
+<p>In both cases, 
+$$ \rho_{XY} = \frac{\mathbb{E} [ h(X,Y) ]}{\sigma_X \sigma_Y} $$
+is called the correlation of $X$ and $Y$.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Covariance-and-correlation">Covariance and correlation<a class="anchor-link" href="#Covariance-and-correlation">&#182;</a></h3><ul>
+<li>Both measure <strong>linear</strong> dependence.</li>
+<li>Correlation is scale invariant but covariance is NOT. </li>
+</ul>
+<p>Let $Z=kX$ for some $k\in \mathbb{R}$, then $\mu_z = k\mu_x$ and $\sigma_Z = k\sigma_X$ (prove them!). This means $h(Z,Y) = k h(X,Y)$ and therefore $\mathbb{E} [ h(Z,Y) ] = k \mathbb{E} [ h(X,Y) ]$ BUT 
+$$\begin{align} 
+    \rho_{ZY} =&amp; \frac{\mathbb{E} [ h(Z,Y) ]}{\sigma_Z \sigma_Y} \\
+    =&amp;\frac{k\mathbb{E} [ h(X,Y) ]}{k\sigma_X \sigma_Y} \\
+    =&amp; \frac{\mathbb{E} [ h(X,Y) ]}{\sigma_X \sigma_Y} \\
+    =&amp; \rho_{XY}
+    \end{align}
+$$</p>
+
+</div>
+</div>
+</div></section></section>
 </div>
 </div>
 
