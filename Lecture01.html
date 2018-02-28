@@ -1,64 +1,8 @@
-
 <!DOCTYPE html>
 <html>
-<head>
-
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="chrome=1" />
-
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-<title>Lecture01 slides</title>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<head><meta charset="utf-8" />
+<title>Lecture01</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-<!-- General and theme style sheets -->
-<link rel="stylesheet" href="reveal.js/css/reveal.css">
-<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
-
-<!-- If the query includes 'print-pdf', include the PDF print sheet -->
-<script>
-if( window.location.search.match( /print-pdf/gi ) ) {
-        var link = document.createElement( 'link' );
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = 'reveal.js/css/print/pdf.css';
-        document.getElementsByTagName( 'head' )[0].appendChild( link );
-}
-
-</script>
-
-<!--[if lt IE 9]>
-<script src="reveal.js/lib/js/html5shiv.js"></script>
-<![endif]-->
-
-<!-- Loading the mathjax macro -->
-<!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        // Center justify equations in code and markdown cells. Elsewhere
-        // we use CSS to left justify single line equations in code cells.
-        displayAlign: 'center',
-        "HTML-CSS": {
-            styles: {'.MathJax_Display': {"margin": 0}},
-            linebreaks: { automatic: true }
-        }
-    });
-    </script>
-    <!-- End of mathjax configuration -->
-
-<!-- Get Font-awesome from cdn -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.css">
 
 <style type="text/css">
     /*!
@@ -11774,133 +11718,59 @@ ul.typeahead-list > li > a {
 
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
-.reveal {
-  font-size: 160%;
+body {
+  overflow: visible;
+  padding: 8px;
 }
-.reveal pre {
-  width: inherit;
-  padding: 0.4em;
-  margin: 0px;
-  font-family: monospace, sans-serif;
-  font-size: 80%;
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
-}
-.reveal pre code {
-  padding: 0px;
-}
-.reveal section img {
-  border: 0px solid black;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
-}
-.reveal i {
-  font-style: normal;
-  font-family: FontAwesome;
-  font-size: 2em;
-}
-.reveal .slides {
-  text-align: left;
-}
-.reveal.fade {
-  opacity: 1;
-}
-.reveal .progress {
-  position: static;
-}
-.reveal .controls .navigate-left,
-.reveal .controls .navigate-left.enabled {
-  border-right-color: #727272;
-}
-.reveal .controls .navigate-left.enabled:hover,
-.reveal .controls .navigate-left.enabled.enabled:hover {
-  border-right-color: #dfdfdf;
-}
-.reveal .controls .navigate-right,
-.reveal .controls .navigate-right.enabled {
-  border-left-color: #727272;
-}
-.reveal .controls .navigate-right.enabled:hover,
-.reveal .controls .navigate-right.enabled.enabled:hover {
-  border-left-color: #dfdfdf;
-}
-.reveal .controls .navigate-up,
-.reveal .controls .navigate-up.enabled {
-  border-bottom-color: #727272;
-}
-.reveal .controls .navigate-up.enabled:hover,
-.reveal .controls .navigate-up.enabled.enabled:hover {
-  border-bottom-color: #dfdfdf;
-}
-.reveal .controls .navigate-down,
-.reveal .controls .navigate-down.enabled {
-  border-top-color: #727272;
-}
-.reveal .controls .navigate-down.enabled:hover,
-.reveal .controls .navigate-down.enabled.enabled:hover {
-  border-top-color: #dfdfdf;
-}
-.reveal .progress span {
-  background: #727272;
-}
-div.input_area {
-  padding: 0.06em;
-}
-div.code_cell {
-  background-color: transparent;
-}
-div.prompt {
-  width: 11ex;
-  padding: 0.4em;
-  margin: 0px;
-  font-family: monospace, sans-serif;
-  font-size: 80%;
-  text-align: right;
-}
-div.output_area pre {
-  font-family: monospace, sans-serif;
-  font-size: 80%;
-}
-div.output_prompt {
-  /* 5px right shift to account for margin in parent container */
-  margin: 5px 5px 0 0;
-}
-div.text_cell.rendered .rendered_html {
-  /* The H1 height seems miscalculated, we are just hidding the scrollbar */
-  overflow-y: hidden;
-}
-a.anchor-link {
-  /* There is still an anchor, we are only hidding it */
-  display: none;
-}
-.rendered_html p {
-  text-align: inherit;
-}
-::-webkit-scrollbar
-{
-  width: 6px;
-  height: 6px;
-}
-::-webkit-scrollbar *
-{
-  background:transparent;
-}
-::-webkit-scrollbar-thumb
-{
-  background: #727272 !important;
+
+div#notebook {
+  overflow: visible;
+  border-top: none;
+}@media print {
+  div.cell {
+    display: block;
+    page-break-inside: avoid;
+  } 
+  div.output_wrapper { 
+    display: block;
+    page-break-inside: avoid; 
+  }
+  div.output { 
+    display: block;
+    page-break-inside: avoid; 
+  }
 }
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-</head>
-
-
+<!-- Loading mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration --></head>
 <body>
+  <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
 
-
-<div class="reveal">
-<div class="slides">
-<section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -11908,7 +11778,7 @@ a.anchor-link {
 <h1 id="Computer-Simulation-STAT2005">Computer Simulation STAT2005<a class="anchor-link" href="#Computer-Simulation-STAT2005">&#182;</a></h1><h2 id="Lecture-1">Lecture 1<a class="anchor-link" href="#Lecture-1">&#182;</a></h2><h3 id="Felix-Chan,--School-of-Economics-and-Finance">Felix Chan,  School of Economics and Finance<a class="anchor-link" href="#Felix-Chan,--School-of-Economics-and-Finance">&#182;</a></h3>
 </div>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -11921,7 +11791,7 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -11936,7 +11806,7 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -11951,7 +11821,7 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -11965,7 +11835,7 @@ a.anchor-link {
 
 </div>
 </div>
-</div><div class="fragment">
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -11977,7 +11847,7 @@ a.anchor-link {
 
 </div>
 </div>
-</div></div><div class="fragment">
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -11988,7 +11858,7 @@ a.anchor-link {
 
 </div>
 </div>
-</div></div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -11998,7 +11868,7 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12018,7 +11888,7 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12030,7 +11900,7 @@ a.anchor-link {
 
 </div>
 </div>
-</div><div class="fragment">
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12042,7 +11912,7 @@ a.anchor-link {
 
 </div>
 </div>
-</div></div><div class="fragment">
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12051,7 +11921,7 @@ a.anchor-link {
 
 </div>
 </div>
-</div></div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12067,7 +11937,41 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">sps</span>
+<span class="kn">import</span> <span class="nn">scipy.special</span> <span class="k">as</span> <span class="nn">spm</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">animation</span> 
+<span class="kn">import</span> <span class="nn">rpy2</span> <span class="k">as</span> <span class="nn">rpy2</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;animation.html&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;html5&#39;</span>
+<span class="o">%</span><span class="k">load_ext</span> rpy2.ipython
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[27]:</div>
@@ -12094,7 +11998,7 @@ a.anchor-link {
 </div>
 </div>
 
-</div></section><section>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[28]:</div>
@@ -12114,7 +12018,7 @@ our_diff_eq <span class="o">&lt;-</span> <span class="kr">function</span><span c
 </div>
 </div>
 
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[29]:</div>
@@ -12166,7 +12070,7 @@ our_diff_eq <span class="o">&lt;-</span> <span class="kr">function</span><span c
 </div>
 </div>
 
-</div></section><section>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
@@ -12206,7 +12110,7 @@ plot<span class="p">(</span>y<span class="p">,</span>type<span class="o">=</span
 </div>
 </div>
 
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12219,7 +12123,77 @@ plot<span class="p">(</span>y<span class="p">,</span>type<span class="o">=</span
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">line</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">anima_diff</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">y0</span><span class="p">):</span> 
+    <span class="n">y</span> <span class="o">=</span> <span class="n">our_diff_eq</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">y0</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;$A$=</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">anima</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">A</span><span class="p">:</span> <span class="n">anima_diff</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">y0</span><span class="p">)</span>
+<span class="n">Aset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">ani</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span><span class="n">anima</span><span class="p">,</span><span class="n">frames</span><span class="o">=</span><span class="n">Aset</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
@@ -15549,7 +15523,7 @@ YQAAAAEAAAAATGF2ZjU3LjgzLjEwMA==
 </div>
 </div>
 
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -15562,7 +15536,7 @@ YQAAAAEAAAAATGF2ZjU3LjgzLjEwMA==
 
 </div>
 </div>
-</div></section><section>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[30]:</div>
@@ -15613,7 +15587,7 @@ YQAAAAEAAAAATGF2ZjU3LjgzLjEwMA==
 </div>
 </div>
 
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -15627,7 +15601,7 @@ YQAAAAEAAAAATGF2ZjU3LjgzLjEwMA==
 
 </div>
 </div>
-</div></section><section>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[33]:</div>
@@ -15661,7 +15635,7 @@ YQAAAAEAAAAATGF2ZjU3LjgzLjEwMA==
 </div>
 </div>
 
-</div></section><section>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[34]:</div>
@@ -15686,7 +15660,7 @@ YQAAAAEAAAAATGF2ZjU3LjgzLjEwMA==
 </div>
 </div>
 
-</div></section><section>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[16]:</div>
@@ -15734,7 +15708,7 @@ YQAAAAEAAAAATGF2ZjU3LjgzLjEwMA==
 </div>
 </div>
 
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -15749,7 +15723,82 @@ YQAAAAEAAAAATGF2ZjU3LjgzLjEwMA==
 
 </div>
 </div>
-</div></section><section>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[17]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(-0.1, 1)</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">bf_animfb</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="p">(</span><span class="n">lAx</span><span class="o">==</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">lAx</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">bfset</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">i</span><span class="o">&gt;=</span><span class="mi">1</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">lAx</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">bfset</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">i</span><span class="o">&gt;=</span><span class="mi">3</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="mf">3.5</span><span class="p">):</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">lAx</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">bfset</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">lAx</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">bfset</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="o">-</span><span class="n">i</span><span class="o">/</span><span class="mf">4.0</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">i</span><span class="o">/</span><span class="mf">4.0</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">i</span><span class="o">/</span><span class="mf">4.0</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;$A=</span><span class="si">{0}</span><span class="s1">$&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+
+<span class="n">bf_animb</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">bf_animfb</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="n">Aset</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[19]:</div>
@@ -18189,7 +18238,7 @@ AAAdZGF0YQAAAAEAAAAATGF2ZjU3LjgzLjEwMA==
 </div>
 </div>
 
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18203,7 +18252,7 @@ AAAdZGF0YQAAAAEAAAAATGF2ZjU3LjgzLjEwMA==
 
 </div>
 </div>
-</div></section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18218,7 +18267,7 @@ $$ \rho_j (t) = \left ( 1- \frac{Y_j(t)}{L_j(t)} \frac{L(t)}{Y(t)} \right ) \fra
 
 </div>
 </div>
-</div></section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18236,7 +18285,7 @@ $$ \rho_j (t) = \left ( 1- \frac{Y_j(t)}{L_j(t)} \frac{L(t)}{Y(t)} \right ) \fra
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18245,7 +18294,7 @@ $$ \rho_j (t) = \left ( 1- \frac{Y_j(t)}{L_j(t)} \frac{L(t)}{Y(t)} \right ) \fra
 
 </div>
 </div>
-</div><div class="fragment">
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18262,7 +18311,7 @@ $$ \rho_j (t) = \left ( 1- \frac{Y_j(t)}{L_j(t)} \frac{L(t)}{Y(t)} \right ) \fra
 
 </div>
 </div>
-</div></div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18277,7 +18326,7 @@ $$ \rho_j (t) = \left ( 1- \frac{Y_j(t)}{L_j(t)} \frac{L(t)}{Y(t)} \right ) \fra
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18294,7 +18343,7 @@ $$ \rho_j (t) = \left ( 1- \frac{Y_j(t)}{L_j(t)} \frac{L(t)}{Y(t)} \right ) \fra
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18307,7 +18356,7 @@ $$ \rho_j (t) = \left ( 1- \frac{Y_j(t)}{L_j(t)} \frac{L(t)}{Y(t)} \right ) \fra
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18322,7 +18371,7 @@ $$ \rho_j (t) = \left ( 1- \frac{Y_j(t)}{L_j(t)} \frac{L(t)}{Y(t)} \right ) \fra
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18335,7 +18384,7 @@ $$ \rho_j (t) = \left ( 1- \frac{Y_j(t)}{L_j(t)} \frac{L(t)}{Y(t)} \right ) \fra
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18353,7 +18402,7 @@ $$</p>
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18368,7 +18417,7 @@ This implies
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18383,7 +18432,7 @@ $$\begin{align}
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18397,7 +18446,7 @@ $$\begin{align}
 
 </div>
 </div>
-</div></section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18411,7 +18460,7 @@ $$\begin{align}
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18425,7 +18474,7 @@ $$f(x) \geq 0 \quad \forall x \quad \text{ and } \quad \int^\infty_{-\infty} f(x
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18438,7 +18487,7 @@ where $f(x)$ denotes the PDF.</p>
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18449,7 +18498,7 @@ How does one interpret this number?</p>
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18465,7 +18514,7 @@ $$ \mathbb{E} \left [ h(X) \right ] = \int_D h(x)f(x)dx.$$</li>
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18476,7 +18525,7 @@ $$ \mathbb{E} \left [ h(X) \right ] = \int_D h(x)f(x)dx.$$</li>
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18491,7 +18540,7 @@ $$ \Pr \left [ (X,Y) \in A \right ] = \underset{A}{\int\int} f(x,y) dxdy.$$</p>
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18503,7 +18552,7 @@ $$ \mathbb{E} \left [ h(X,Y) \right ] = \int \int h(x,y) f(x,y)dxdy.$$</p>
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18522,7 +18571,7 @@ $$</p>
 
 </div>
 </div>
-</div></section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18541,7 +18590,7 @@ $$</p>
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18554,7 +18603,7 @@ is called the correlation of $X$ and $Y$.</p>
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18574,7 +18623,90 @@ $$</p>
 
 </div>
 </div>
-</div></section><section>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">200</span> <span class="c1">#Number of observations to simulate</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">sps</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="n">N</span><span class="p">)))</span> <span class="c1">#Draw from 2 iid Normal random variates</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="mf">0.9</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#Constructing positively correlated random variables. </span>
+<span class="n">y2</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.9</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#Constructing negatively correlated random variables. </span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#Constructing nonlinear dependent random variables. </span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y1</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)),</span> <span class="n">y2</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)),</span> <span class="n">z</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">))]</span>
+<span class="n">Cor</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">r_x</span> <span class="o">=</span> <span class="n">Cor</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">r_xy1</span> <span class="o">=</span> <span class="n">Cor</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">r_xy2</span> <span class="o">=</span> <span class="n">Cor</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">r_xz</span> <span class="o">=</span> <span class="n">Cor</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">r_x</span><span class="p">,</span><span class="n">r_xy1</span><span class="p">,</span><span class="n">r_xy2</span><span class="p">,</span> <span class="n">r_xz</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[49]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(-0.11106992525246427,
+ 0.5818787433361122,
+ -0.6845222675978021,
+ -0.11610986073398899)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">draw_corr</span><span class="p">():</span>
+    <span class="n">xrange</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="mf">0.01</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ty</span> <span class="o">=</span> <span class="mf">0.9</span><span class="o">*</span><span class="n">xrange</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">y1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xrange</span><span class="p">,</span> <span class="n">ty</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\rho = </span><span class="si">{0:.4}</span><span class="s1">$&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r_xy1</span><span class="p">))</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ty</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.9</span><span class="o">*</span><span class="n">xrange</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">y2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xrange</span><span class="p">,</span> <span class="n">ty</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\rho=</span><span class="si">{0:.4}</span><span class="s1">$&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r_xy2</span><span class="p">))</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;IID, $\rho=</span><span class="si">{0:.4}</span><span class="s1">$&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r_x</span><span class="p">))</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">ty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">xrange</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">z</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xrange</span><span class="p">,</span><span class="n">ty</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$y_i=x_i^2+e_i$, $\rho=</span><span class="si">{0:.4}</span><span class="s1">$&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r_xz</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[62]:</div>
@@ -18609,7 +18741,7 @@ $$</p>
 </div>
 </div>
 
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18627,7 +18759,7 @@ $$</p>
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18643,7 +18775,7 @@ $$</p>
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18659,7 +18791,7 @@ $$</p>
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
@@ -18687,7 +18819,7 @@ $$</p>
 </div>
 </div>
 
-</div></section><section>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[35]:</div>
@@ -18728,7 +18860,7 @@ $$</p>
 </div>
 </div>
 
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
@@ -18750,7 +18882,7 @@ $$</p>
 </div>
 </div>
 
-</div></section><section>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
@@ -18805,7 +18937,7 @@ $$</p>
 </div>
 </div>
 
-</div></section><section>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
@@ -18859,7 +18991,7 @@ $$</p>
 </div>
 </div>
 
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18872,74 +19004,12 @@ $$</p>
 
 </div>
 </div>
-</div></section></section>
 </div>
-</div>
-
-<script>
-
-require(
-    {
-      // it makes sense to wait a little bit when you are loading
-      // reveal from a cdn in a slow connection environment
-      waitSeconds: 15
-    },
-    [
-      "reveal.js/lib/js/head.min.js",
-      "reveal.js/js/reveal.js"
-    ],
-
-    function(head, Reveal){
-
-        // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
-        Reveal.initialize({
-            controls: true,
-            progress: true,
-            history: true,
-
-            transition: "convex",
-
-            // Optional libraries used to extend on reveal.js
-            dependencies: [
-                { src: "reveal.js/lib/js/classList.js",
-                  condition: function() { return !document.body.classList; } },
-                { src: "reveal.js/plugin/notes/notes.js",
-                  async: true,
-                  condition: function() { return !!document.body.classList; } }
-            ]
-        });
-
-        var update = function(event){
-          if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
-            MathJax.Hub.Rerender(Reveal.getCurrentSlide());
-          }
-        };
-
-        Reveal.addEventListener('slidechanged', update);
-
-        function setScrollingSlide() {
-            var scroll = false
-            if (scroll === true) {
-              var h = $('.reveal').height() * 0.95;
-              $('section.present').find('section')
-                .filter(function() {
-                  return $(this).height() > h;
-                })
-                .css('height', 'calc(95vh)')
-                .css('overflow-y', 'scroll')
-                .css('margin-top', '20px');
-            }
-        }
-
-        // check and set the scrolling slide every time the slide change
-        Reveal.addEventListener('slidechanged', setScrollingSlide);
-
-    }
-
-);
-</script>
-
+    </div>
+  </div>
 </body>
+
+ 
 
 
 </html>
