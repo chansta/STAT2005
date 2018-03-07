@@ -11829,7 +11829,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -11860,7 +11860,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -11887,15 +11887,18 @@ $( document ).ready(function(){
 <h2 id="Linear-Congruential-Generator">Linear Congruential Generator<a class="anchor-link" href="#Linear-Congruential-Generator">&#182;</a></h2><p>Recall a LCG is defined by the following recurrence relation:</p>
 <p>$$ y_{t+1} = Ay_t + B \; (\text{mod } m). $$</p>
 <p>When $B=0$, it becomes the <em>multiplicative Congruential Generator</em>.</p>
-<p>Write a function similar to the one presented in the lecture to generate a sequence of $N$ pseudo random numbers by the LCG. $A,B$ and $m$ should be treated as inputs to this function.</p>
-<p><strong>Hint</strong> Recall $A\%B$ defines the modulo operator in <a href="http://www.python.org">Python</a>.</p>
+<div style="background-color:#F0F8FF">
+**Exercise**    
+Write a function similar to the one presented in the lecture to generate a sequence of $N$ pseudo random numbers by the LCG. $A,B$ and $m$ should be treated as inputs to this function. 
 
+**Hint** Recall $A\%B$ defines the modulo operator in [Python](http://www.python.org). 
+</div>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">LCG</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">y0</span><span class="p">):</span>
@@ -11934,7 +11937,7 @@ $( document ).ready(function(){
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Two-Dimensional-Random-Draws-with-LCG">Two Dimensional Random Draws with LCG<a class="anchor-link" href="#Two-Dimensional-Random-Draws-with-LCG">&#182;</a></h2><p>Consider the problem of generating a set of random points on a rectangle, that is, we want to generate set of $N$ pairs of random numbers $(x_i, y_i)$ where $x_i, y_i \in [0,1]$ for $i=1,\ldots, N$.</p>
+<h2 id="Two-Dimensional-Random-Draws-with-LCG">Two Dimensional Random Draws with LCG<a class="anchor-link" href="#Two-Dimensional-Random-Draws-with-LCG">&#182;</a></h2><p>Consider the problem of generating a set of random points on a rectangle, that is, we want to generate a set of $N$ pairs of random numbers $(x_i, y_i)$ where $x_i, y_i \in [0,1]$ for $i=1,\ldots, N$.</p>
 <p>One way to do this is to utilise our LCG function and generate $N+1$ pseudo random numbers, $\{u_1, \ldots, u_{N+1}\}$, then our $N$ random points can be constructed as $(u_1,u_2), (u_2,u_3), (u_3, u_4), \ldots, (u_N, u_{N+1})$.</p>
 <p>Construct a set of 50 random points by following this algoirthm. Use $A=127$, $B=0$, $m=511$, $y_0=1$.</p>
 <p><strong>Hint:</strong> You may wish to construct a function to return a two dimensional random generator using LCG, as we will be using this algorithm repeatedly.</p>
@@ -11945,14 +11948,14 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">LCG_2dim</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">y0</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">LCG_2dim</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">y0</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generate two dimensional random points using LCG. </span>
 <span class="sd">    Inputs:</span>
-<span class="sd">        N: Positive int. Number of draws. </span>
+<span class="sd">        n: Positive int. Number of draws. </span>
 <span class="sd">        A: Positive int. Multiplier in the LCG. </span>
 <span class="sd">        B: Positive int. Shift in the LCG</span>
 <span class="sd">        m: Positive int. Modulo </span>
@@ -11960,7 +11963,7 @@ $( document ).ready(function(){
 <span class="sd">    Output:</span>
 <span class="sd">        y: (N,2) numpy array. </span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    
+    <span class="n">N</span> <span class="o">=</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span>
     <span class="n">U</span> <span class="o">=</span> <span class="n">LCG</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">y0</span><span class="p">)</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">U</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">U</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">]]</span>
     <span class="k">return</span> <span class="n">y</span>
@@ -11973,7 +11976,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">50</span>
@@ -11995,13 +11998,13 @@ $( document ).ready(function(){
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[35]:</div>
+<div class="prompt output_prompt">Out[23]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.collections.PathCollection at 0x10cdd7358&gt;</pre>
+<pre>&lt;matplotlib.collections.PathCollection at 0x11269a7b8&gt;</pre>
 </div>
 
 </div>
@@ -12035,7 +12038,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">2000</span>
@@ -12057,13 +12060,13 @@ $( document ).ready(function(){
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[36]:</div>
+<div class="prompt output_prompt">Out[24]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.collections.PathCollection at 0x10d0e7eb8&gt;</pre>
+<pre>&lt;matplotlib.collections.PathCollection at 0x112a49fd0&gt;</pre>
 </div>
 
 </div>
@@ -12097,7 +12100,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">2000</span>
@@ -12119,13 +12122,13 @@ $( document ).ready(function(){
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[43]:</div>
+<div class="prompt output_prompt">Out[25]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.collections.PathCollection at 0x10dac70f0&gt;</pre>
+<pre>&lt;matplotlib.collections.PathCollection at 0x112a6bcf8&gt;</pre>
 </div>
 
 </div>
@@ -12159,7 +12162,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">2000</span>
@@ -12181,13 +12184,13 @@ $( document ).ready(function(){
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[46]:</div>
+<div class="prompt output_prompt">Out[26]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.collections.PathCollection at 0x10e203c88&gt;</pre>
+<pre>&lt;matplotlib.collections.PathCollection at 0x112d667f0&gt;</pre>
 </div>
 
 </div>
@@ -12221,10 +12224,10 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">2000</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">20000</span>
 <span class="n">A</span> <span class="o">=</span> <span class="mi">127</span>
 <span class="n">B</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">m</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">11</span><span class="o">-</span><span class="mi">1</span>
@@ -12243,13 +12246,13 @@ $( document ).ready(function(){
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[47]:</div>
+<div class="prompt output_prompt">Out[27]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.collections.PathCollection at 0x10e3ac860&gt;</pre>
+<pre>&lt;matplotlib.collections.PathCollection at 0x112d89470&gt;</pre>
 </div>
 
 </div>
@@ -12277,9 +12280,53 @@ $( document ).ready(function(){
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Comment</strong> You don't see 20000 points in the plot above. This means the period of this setting is very low.</p>
+<p>We can compare the above with the random number generator from Python and see how different they are.</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tempy</span> <span class="o">=</span> <span class="n">sps</span><span class="o">.</span><span class="n">uniform</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">tempy</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">tempy</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">]]</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;From MCG&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y1</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;From Python&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="Workshop02_sol_files/Workshop02_sol_20_0.png"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
@@ -12305,7 +12352,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[101]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">RV_Bernoulli</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">p</span><span class="p">):</span>
@@ -12331,13 +12378,13 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[103]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">50</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">p</span> <span class="o">=</span> <span class="mf">0.8</span>
 <span class="n">B</span> <span class="o">=</span> <span class="n">RV_Bernoulli</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">p</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12350,13 +12397,13 @@ $( document ).ready(function(){
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[103]:</div>
+<div class="prompt output_prompt">Out[37]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(array([10.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0., 40.]),
+<pre>(array([1.7, 0. , 0. , 0. , 0. , 0. , 0. , 0. , 0. , 8.3]),
  array([0. , 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1. ]),
  &lt;a list of 10 Patch objects&gt;)</pre>
 </div>
@@ -12371,7 +12418,7 @@ $( document ).ready(function(){
 
 
 <div class="output_png output_subarea ">
-<img src="Workshop02_sol_files/Workshop02_sol_23_1.png"
+<img src="Workshop02_sol_files/Workshop02_sol_24_1.png"
 >
 </div>
 
@@ -12395,7 +12442,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">PMF_poisson</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">l</span><span class="p">):</span>
@@ -12418,7 +12465,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">CDF_poisson</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">l</span><span class="p">):</span>
@@ -12442,7 +12489,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[96]:</div>
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">__choose_x__</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">l</span><span class="p">):</span>
@@ -12488,7 +12535,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[97]:</div>
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">500</span>
@@ -12503,10 +12550,10 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[100]:</div>
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12519,14 +12566,15 @@ $( document ).ready(function(){
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[100]:</div>
+<div class="prompt output_prompt">Out[55]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(array([184., 200.,   0.,  92.,   0.,  14.,   7.,   0.,   2.,   1.]),
- array([0. , 0.6, 1.2, 1.8, 2.4, 3. , 3.6, 4.2, 4.8, 5.4, 6. ]),
+<pre>(array([0.748, 0.   , 0.724, 0.   , 0.348, 0.   , 0.132, 0.   , 0.044,
+        0.004]),
+ array([0. , 0.5, 1. , 1.5, 2. , 2.5, 3. , 3.5, 4. , 4.5, 5. ]),
  &lt;a list of 10 Patch objects&gt;)</pre>
 </div>
 
@@ -12540,7 +12588,116 @@ $( document ).ready(function(){
 
 
 <div class="output_png output_subarea ">
-<img src="Workshop02_sol_files/Workshop02_sol_29_1.png"
+<img src="Workshop02_sol_files/Workshop02_sol_30_1.png"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The code above utilises the algorithm as is but it is not the most efficient. We can improve efficiency by considering the following.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">__choose_x_eff__</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">l</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Decide the value of x to be returned given the uniform draw u and the Poisson parameter l. To be used with RV_poisson()</span>
+<span class="sd">    Inputs:</span>
+<span class="sd">        u: Random draw from a U(0,1) distribution.</span>
+<span class="sd">        l: The parameter of the Poisson Distribution. </span>
+<span class="sd">    Output:</span>
+<span class="sd">        x: int. Random draw from a poisson distribution. </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">to_return</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">cdf</span> <span class="o">=</span> <span class="mi">0</span> 
+    <span class="k">while</span> <span class="n">to_return</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="n">cdf</span> <span class="o">=</span> <span class="n">cdf</span> <span class="o">+</span> <span class="n">PMF_poisson</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">l</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">u</span> <span class="o">&gt;</span> <span class="n">cdf</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">to_return</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="k">def</span> <span class="nf">RV_poisson_eff</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">l</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Simulate a set of N random draws based on the Poisson distribution with parameter l using the Inversion method. </span>
+<span class="sd">    Inputs:</span>
+<span class="sd">        N: Positive int. The numebr of draws. </span>
+<span class="sd">        l: Positive int. The parameter in the Poisson distribuion. </span>
+<span class="sd">    Output:</span>
+<span class="sd">        y: (N,) numpy array containing N random draws. </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">U</span> <span class="o">=</span> <span class="n">sps</span><span class="o">.</span><span class="n">uniform</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">u</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">U</span><span class="p">):</span>
+        <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">__choose_x_eff__</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">l</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">y</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">l</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">test_eff</span> <span class="o">=</span> <span class="n">RV_poisson_eff</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">l</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">test_eff</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[59]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(array([0.74 , 0.   , 0.72 , 0.   , 0.336, 0.   , 0.16 , 0.   , 0.04 ,
+        0.004]),
+ array([0. , 0.5, 1. , 1.5, 2. , 2.5, 3. , 3.5, 4. , 4.5, 5. ]),
+ &lt;a list of 10 Patch objects&gt;)</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="Workshop02_sol_files/Workshop02_sol_33_1.png"
 >
 </div>
 
