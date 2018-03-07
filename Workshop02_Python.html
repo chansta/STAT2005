@@ -11816,7 +11816,7 @@ $( document ).ready(function(){
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We are going to examine two issues in this workshop. First we are going to explore the problems with the Linear Congruential Generator, specifically, the Multiplicative Congruential Generator, for purposes of generating pseudo random number. Second, we are going to construct functions that simulate different random variables.</p>
-<p>To begin we need to import a few libraries and setup our Jupyter notebook enviironment.</p>
+<p>To begin we need to import a few libraries and setup our Jupyter notebook environment.</p>
 <h2 id="Import-Libraries-and-Other-Settings">Import Libraries and Other Settings<a class="anchor-link" href="#Import-Libraries-and-Other-Settings">&#182;</a></h2><p>Similar to <a href="http://cran.r-project.org">R</a>, the power of <a href="http://www.python.org">Python</a> hinges on the extensive collection of libraries (modules). In terms of scientific computing, three libraries are very useful, namely, <a href="http://www.numpy.org">Numpy</a>, <a href="http://www.scipy.org">Scipy</a> and <a href="http://www.matplotlib.org">Matplotlib</a>. In this workshop, we will be going through some of the features of these modules in order to complete our tasks.</p>
 <p><a href="http://www.numpy.org">Numpy</a> defines the basic structure of multi-dimensional arrays as well as functions and operators for these arrays. This includes objects such as vector and matrix as well as their operations.</p>
 <p><a href="http://www.scipy.org">Scipy</a> is an extensive modules for scientific computing. It is based on <a href="http://www.numpy.org">Numpy</a> and uses <a href="http://www.numpy.org">Numpy</a> objects extensively. It also contains routines for statistical analysis, including simulation of random variables as well as routines on optimisation.</p>
@@ -11900,7 +11900,7 @@ LCG. $A,B$ and $m$ should be treated as inputs to this function.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Two-Dimensional-Random-Draws-with-LCG">Two Dimensional Random Draws with LCG<a class="anchor-link" href="#Two-Dimensional-Random-Draws-with-LCG">&#182;</a></h2><p>Consider the problem of generating a set of random points on a rectangle, that is, we want to generate a set of $N$ pairs of random numbers $(x_i, y_i)$ where $x_i, y_i \in [0,1]$ for $i=1,\ldots, N$.</p>
 <p>One way to do this is to utilise our LCG function and generate $N+1$ pseudo random numbers, $\{u_1, \ldots, u_{N+1}\}$, then our $N$ random points can be constructed as $(u_1,u_2), (u_2,u_3), (u_3, u_4), \ldots, (u_N, u_{N+1})$.</p>
-<p>Construct a set of 50 random points by following this algoirthm. Use $A=127$, $B=0$, $m=511$, $y_0=1$.</p>
+<p>Construct a set of 50 random points by following this algorithm. Use $A=127$, $B=0$, $m=511$, $y_0=1$.</p>
 <p><strong>Hint:</strong> You may wish to construct a function to return a two dimensional random generator using LCG, as we will be using this algorithm repeatedly.</p>
 <p>Use <strong>plt.scatter</strong> to draw a scatter plot of the random points from this algorithm</p>
 
@@ -11960,7 +11960,7 @@ LCG. $A,B$ and $m$ should be treated as inputs to this function.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Discrete-Random-Numbers-(Bernoulli-Trial)">Discrete Random Numbers (Bernoulli Trial)<a class="anchor-link" href="#Discrete-Random-Numbers-(Bernoulli-Trial)">&#182;</a></h2><p>Construct a function that will return a sequence of $N$ indpendent (Bernoulli) trails given success probability, $p$.</p>
+<h2 id="Discrete-Random-Numbers-(Bernoulli-Trial)">Discrete Random Numbers (Bernoulli Trial)<a class="anchor-link" href="#Discrete-Random-Numbers-(Bernoulli-Trial)">&#182;</a></h2><p>Construct a function that will return a sequence of $N$ independent (Bernoulli) trails given success probability, $p$.</p>
 
 </div>
 </div>
@@ -11969,7 +11969,7 @@ LCG. $A,B$ and $m$ should be treated as inputs to this function.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Discrete-Random-Numbers-(Poisson)">Discrete Random Numbers (Poisson)<a class="anchor-link" href="#Discrete-Random-Numbers-(Poisson)">&#182;</a></h2><p>Recall the PMF for a Poisson random varibale is $X\sim Poi(\lambda)$
+<h2 id="Discrete-Random-Numbers-(Poisson)">Discrete Random Numbers (Poisson)<a class="anchor-link" href="#Discrete-Random-Numbers-(Poisson)">&#182;</a></h2><p>Recall the PMF for a Poisson random variable is $X\sim Poi(\lambda)$
     $$ p(x; \lambda) = \frac{\exp (-\lambda) \lambda^x}{x!}, \qquad x=0,1,2,\ldots $$</p>
 <p>Construct a function that will take $\lambda$ and the number of random draws as inputs and return a $(N,)$ numpy array containing random number following the Poisson distribution.</p>
 <p><strong>Hint</strong> Use scipy.special.factorial() for calculating $x!$ and use numpy.power() to calculate $\lambda^x$.</p>
